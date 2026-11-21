@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  # --- Сервер 1 ---
+  zoo1:
+    image: zookeeper:3.9.6 # Используем конкретную версию из задания
+    container_name: zoo1 # Удобное имя для логов и команд
+    restart: always # Если упал, Docker сам его поднимет
+    environment:
+      ZOO_MY_ID: 1 # Тот самый файл myid! Образ создаст его сам.
+      ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+      # ^^^ Это аналог строк в zoo.cfg. Формат: server.ID=HOST:порт_лидера:порт_выборов;порт_клиента
+    ports:
+      - "2181:2181" # Пробрасываем клиентский порт на хост-машину
+    volumes:
+      - zoo1_data:/data # Отдельный том для данных, чтобы не пересекались
+      - zoo1_datalog:/datalog
+
+  # --- Сервер 2 ---
+  zoo2:
+    image: zookeeper:3.9.6
+    container_name: zoo2
+    restart: always
+    environment:
+      ZOO_MY_ID: 2 # Уникальный ID для второго сервера
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=0.0.0.0:2888:3888;2181 server.3=zoo3:2888:3888;2181
+    ports:
+      - "2182:2181" # На хост-машине будет порт 2182, внутри контейнера 2181
+    volumes:
+      - zoo2_data:/data
+      - zoo2_datalog:/datalog
+
+  # --- Сервер 3 ---
+  zoo3:
+    image: zookeeper:3.9.6
+    container_name: zoo3
+    restart: always
+    environment:
+      ZOO_MY_ID: 3 # Уникальный ID для третьего сервера
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=0.0.0.0:2888:3888;2181
+    ports:
+      - "2183:2181" # На хост-машине будет порт 2183, внутри контейнера 2181
+    volumes:
+      - zoo3_data:/data
+      - zoo3_datalog:/datalog
+
+# Объявляем именованные тома (volumes), чтобы данные сохранялись между перезапусками
+volumes:
+  zoo1_data:
+  zoo1_datalog:
+  zoo2_data:
+  zoo2_datalog:
+  zoo3_data:
+  zoo3_datalog:
