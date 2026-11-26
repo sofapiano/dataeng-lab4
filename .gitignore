@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Локальные секреты и машинные настройки — НЕ коммитим
+configs/pipeline.env
+infra/.env
+.env
+
+# Крупные входные данные — НЕ коммитим (808 МБ)
+data/raw/*.csv
+
+# Временные/профилировочные артефакты
+profiling/output/
+reports/output/tmp/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# ВАЖНО: logs/ намеренно НЕ игнорируется — журналы запусков нужны для отчёта

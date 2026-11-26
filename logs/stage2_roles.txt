@@ -1,0 +1,22 @@
+﻿=== stage2_roles.txt ===
+Дата: 2026-11-26 17:47:41
+
+Время: 17:47:39
+--- zoo1 : docker exec zoo1 zkServer.sh status ---
+ZooKeeper JMX enabled by default
+Using config: /conf/zoo.cfg
+Client port found: 2181. Client address: localhost. Client SSL: false.
+Mode: follower
+
+--- zoo2 : docker exec zoo2 zkServer.sh status ---
+ZooKeeper JMX enabled by default
+Using config: /conf/zoo.cfg
+Client port found: 2181. Client address: localhost. Client SSL: false.
+Mode: follower
+
+--- zoo3 : docker exec zoo3 zkServer.sh status ---
+ZooKeeper JMX enabled by default
+Using config: /conf/zoo.cfg
+Client port found: 2181. Client address: localhost. Client SSL: false.
+Mode: leader
+

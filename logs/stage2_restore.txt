@@ -1,0 +1,14 @@
+﻿=== stage2_restore.txt ===
+Дата: 2026-11-26 17:47:56
+
+ Container zoo3 Starting 
+ Container zoo2 Starting 
+ Container zoo3 Started 
+ Container zoo2 Started 
+Ансамбль снова отвечает: True
+Время восстановления после start: 3.27 с
+--- docker compose ps ---
+NAME      IMAGE             COMMAND                  SERVICE   CREATED       STATUS         PORTS
+zoo1      zookeeper:3.9.6   "/docker-entrypoint.тАж"   zoo1      4 hours ago   Up 4 hours     0.0.0.0:2181->2181/tcp, [::]:2181->2181/tcp
+zoo2      zookeeper:3.9.6   "/docker-entrypoint.тАж"   zoo2      4 hours ago   Up 2 seconds   0.0.0.0:2182->2181/tcp, [::]:2182->2181/tcp
+zoo3      zookeeper:3.9.6   "/docker-entrypoint.тАж"   zoo3      4 hours ago   Up 3 seconds   0.0.0.0:2183->2181/tcp, [::]:2183->2181/tcp

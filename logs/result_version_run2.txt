@@ -1,0 +1,4 @@
+coordinator_id=2
+epoch=2
+fencing=1
+result_version=1

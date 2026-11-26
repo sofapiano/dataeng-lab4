@@ -1,0 +1,3 @@
+coordinator_id=1
+my_epoch=1
+reason=epoch 1 устарела (текущая 2)

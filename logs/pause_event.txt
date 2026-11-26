@@ -1,0 +1,4 @@
+pause_wall_time=1795705092.704449
+pid=13
+session_timeout=10
+resume_after_seconds=40

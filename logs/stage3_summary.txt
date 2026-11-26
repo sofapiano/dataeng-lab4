@@ -1,0 +1,26 @@
+=== Сводка этапа 3 ===
+
+RUN 1 — FENCING=0
+  Лидер:           coordinator id=1, PID=15, epoch=1
+  Пауза лидера:    17:56:56, после 3-го чекпоинта, авто-resume через 40.04 с
+  Время смены:     10.69 с (до получения лидерства coordinator id=2, epoch=2)
+  Записи /result:  id=2 -> version=1; затем id=1 -> version=2
+  Финальный /result: version=2, writer=coord1, epoch=1
+  Доказательство:  logs/stage3_run1_zk_result.txt (dataVersion = 2)
+
+RUN 2 — FENCING=1
+  Лидер:           coordinator id=1, PID=13, epoch=1
+  Пауза лидера:    17:58:12, после 3-го чекпоинта, авто-resume через 40.16 с
+  Время смены:     12.48 с (до получения лидерства coordinator id=2, epoch=2)
+  Проверка эпохи:  моя=1, в ZooKeeper=2
+  Старый лидер:    BadVersionError: запись отклонена
+  Финальный /result: version=1, writer=coord2, epoch=2
+  Доказательство:  logs/stage3_run2_zk_result.txt (dataVersion = 1)
+
+КОНТРОЛЬНЫЕ ЧИСЛА (оба прогона, сверка с ДЗ №3 — СОВПАДАЮТ)
+  total_rows       = 229388
+  total_bad        = 0
+  total_matched    = 4176
+  total_with_skills= 3093
+  unique k1/k2/k3  = 1138 / 14089 / 73431
+  total    k1/k2/k3= 17153 / 55642 / 153808

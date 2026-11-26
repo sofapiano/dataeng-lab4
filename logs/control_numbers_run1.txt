@@ -1,0 +1,19 @@
+{
+  "coordinator_id": "1",
+  "epoch": 1,
+  "fencing": 0,
+  "total_rows": 229388,
+  "total_bad": 0,
+  "total_matched": 4176,
+  "total_with_skills": 3093,
+  "unique_k1": 1138,
+  "unique_k2": 14089,
+  "unique_k3": 73431,
+  "total_k1": 17153,
+  "total_k2": 55642,
+  "total_k3": 153808,
+  "timestamp": "2026-11-26 17:57:40"
+}
+
+СВЕРКА С ДЗ №3: СОВПАДАЮТ
+Ожидаемые значения: total_rows=229388, total_matched=4176, total_with_skills=3093, unique_k1=1138, unique_k2=14089, unique_k3=73431, total_k1=17153, total_k2=55642, total_k3=153808
